@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.Python
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+env/
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+
+# Models (if too large)
+models/*.h5
+models/*.joblib
+models/*.pt
+models/*.pth
+
+# Misc
+*.log
+*.tmp
+*.temp

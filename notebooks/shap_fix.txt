@@ -1,0 +1,18 @@
+# Handle calibrated model (extract base estimator for SHAP)
+if hasattr(best_model, 'calibrated_classifiers_'):
+    # CalibratedClassifierCV - use first calibrated classifier's base estimator
+    base_estimator = best_model.calibrated_classifiers_[0].estimator
+    print(f'Detected calibrated model. Using base estimator: {type(base_estimator).__name__}')
+else:
+    base_estimator = best_model
+
+mtype = type(base_estimator).__name__
+print(f'Model type for SHAP: {mtype}')
+
+if 'Tree' in mtype or 'Forest' in mtype or 'Boost' in mtype or 'XGB' in mtype:
+    explainer = shap.TreeExplainer(base_estimator)
+    print(f'TreeExplainer for {mtype}')
+else:
+    bg = shap.sample(X_train, 100)
+    explainer = shap.KernelExplainer(base_estimator.predict_proba, bg)
+    print(f'KernelExplainer for {mtype}')
