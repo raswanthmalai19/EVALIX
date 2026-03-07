@@ -853,6 +853,11 @@ body {
     border: 2px solid var(--danger-400);
 }
 
+.decision-card.review {
+    background: linear-gradient(135deg, var(--warning-50) 0%, #fffbeb 100%);
+    border: 2px solid var(--warning-400);
+}
+
 .decision-badge {
     width: 80px;
     height: 80px;
@@ -872,6 +877,11 @@ body {
 .decision-card.rejected .decision-badge {
     background: var(--danger-100);
     color: var(--danger-600);
+}
+
+.decision-card.review .decision-badge {
+    background: var(--warning-100);
+    color: var(--warning-600);
 }
 
 .decision-label {
@@ -894,6 +904,10 @@ body {
 
 .decision-card.rejected .decision-text {
     color: var(--danger-600);
+}
+
+.decision-card.review .decision-text {
+    color: var(--warning-600);
 }
 
 .decision-metrics {
@@ -936,6 +950,11 @@ body {
     color: var(--danger-600);
 }
 
+.metric-badge.elevated {
+    background: #fff3e0;
+    color: #e65100;
+}
+
 .metric-badge.very_low {
     background: var(--success-50);
     color: var(--success-700);
@@ -969,7 +988,7 @@ body {
 .gauge-track {
     position: relative;
     height: 12px;
-    background: linear-gradient(90deg, var(--success-400) 0%, var(--warning-400) 50%, var(--danger-400) 100%);
+    background: linear-gradient(90deg, var(--danger-400) 0%, var(--warning-400) 50%, var(--success-400) 100%);
     border-radius: var(--radius-full);
     overflow: visible;
 }

@@ -129,12 +129,21 @@ def _decision_from_probability(prob: float) -> str:
 
 
 def _risk_level(prob: float) -> str:
-    """Map probability to risk level with uncertainty modeling."""
-    if prob >= 0.60:
+    """Map probability to risk level, aligned with decision thresholds.
+    
+    Approved zone (>=0.50): Low
+    Upper review zone (0.35-0.50): Medium  
+    Lower review zone (0.25-0.35): Elevated
+    Rejection zone (0.10-0.25): High
+    Hard rejection (<0.10): Very High
+    """
+    if prob >= 0.50:
         return "Low"
-    elif prob >= 0.40:
+    elif prob >= 0.35:
         return "Medium"
-    elif prob >= 0.20:
+    elif prob >= 0.25:
+        return "Elevated"
+    elif prob >= 0.10:
         return "High"
     else:
         return "Very High"

@@ -120,12 +120,23 @@ function displayResults(result) {
     resultsPlaceholder.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
 
-    // --- Decision card ---
-    const isApproved = result.decision === 'Approved';
-    decisionCard.className = `decision-card ${isApproved ? 'approved' : 'rejected'}`;
-    decisionBadge.className = `decision-badge ${isApproved ? 'approved' : 'rejected'}`;
-    decisionIcon.className  = isApproved ? 'fas fa-check-circle' : 'fas fa-times-circle';
-    decisionText.textContent = result.decision.toUpperCase();
+    // --- Decision card (3-state) ---
+    const decision = result.decision;
+    let decisionClass, iconClass;
+    if (decision === 'Approved') {
+        decisionClass = 'approved';
+        iconClass = 'fas fa-check-circle';
+    } else if (decision === 'Review Needed') {
+        decisionClass = 'review';
+        iconClass = 'fas fa-exclamation-circle';
+    } else {
+        decisionClass = 'rejected';
+        iconClass = 'fas fa-times-circle';
+    }
+    decisionCard.className = `decision-card ${decisionClass}`;
+    decisionBadge.className = `decision-badge ${decisionClass}`;
+    decisionIcon.className = iconClass;
+    decisionText.textContent = decision.toUpperCase();
 
     // Approval odds = probability (direct display)
     const approvalPct = (result.probability * 100).toFixed(2);
