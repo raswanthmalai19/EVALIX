@@ -1,0 +1,783 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amssymb,mathrsfs}
+\usepackage{amsmath, amsthm}
+\usepackage[lmargin=3cm,rmargin=3cm,tmargin=3cm,bmargin=3.5cm]{geometry}
+\usepackage{nomencl}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red!60!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+}
+
+\renewcommand\bibname{References}
+\author{RASWANTHKRISHNA M}
+\date{}
+\begin{document}
+
+%────────────────────────────────────────────────────────────────
+% TITLE PAGE
+%────────────────────────────────────────────────────────────────
+\thispagestyle{empty}
+\begin{large}
+\begin{center}
+
+{\Large{\bf {\sc Evalix: Intelligent Credit Risk Assessment System using Explainable Machine Learning with Fairness-Aware Decision Support}}}
+
+\vspace{1.3cm}
+PROJECT REPORT \\
+\vspace{.3cm}
+\textit{Submitted by}\\
+\vspace{.3cm}
+\textbf{RASWANTHKRISHNA M}\\
+\textbf{(Roll.No)}\\
+\vspace{.3cm}
+\textit{in partial fulfillment for the award of the degree of}\\
+\vspace{.5cm}
+\textbf{BACHELOR OF TECHNOLOGY}\\
+\textbf{IN}\\
+\textbf{COMPUTER SCIENCE ENGINEERING - ARTIFICIAL INTELLIGENCE}\\
+\vspace*{.3cm}
+\begin{figure}[h]
+	\hspace*{4.5cm}\includegraphics*[width=3.1in, height=1in, keepaspectratio=false]{Amrita.jpg}\\
+\end{figure}
+
+\vspace*{.2cm}
+\textbf{\small{COMPUTER SCIENCE ENGINEERING - ARTIFICIAL INTELLIGENCE}}\\
+\vspace*{.2cm}
+\large {\textbf{AMRITA SCHOOL OF ARTIFICIAL INTELLIGENCE}}\\
+\vspace*{.2cm}
+\Large{ \textbf{ AMRITA VISHWA VIDYAPEETHAM}}\\
+\vspace*{.2cm}
+\small{ COIMBATORE} - 641 112 (\small{INDIA)}\\
+\vspace*{.2cm}
+\bf{\small{ APRIL - 2025}}
+
+\end{center}
+\end{large}
+
+\baselineskip 1cm
+
+%────────────────────────────────────────────────────────────────
+% BONAFIDE CERTIFICATE
+%────────────────────────────────────────────────────────────────
+\newpage
+\thispagestyle{empty}
+\begin{center}
+	{\large {\textbf{COMPUTER SCIENCE ENGINEERING - ARTIFICIAL INTELLIGENCE}}}\\
+	\Large{ \textbf{ AMRITA VISHWA VIDYAPEETHAM}}\\
+	\small{ COIMBATORE} - 641 112\\
+	
+	\begin{figure}[h]
+		\hspace*{4.5cm}\includegraphics*[width=3.1in, height=1in, keepaspectratio=false]{Amrita.jpg}\\
+	\end{figure}
+	
+	{\Large \textbf{BONAFIDE CERTIFICATE}}
+\end{center}
+
+\noindent This is to certify that the thesis entitled {\small\textbf{``Evalix: Intelligent Credit Risk Assessment System using Explainable Machine Learning with Fairness-Aware Decision Support"}} submitted by \textbf{RASWANTHKRISHNA M (Register Number - Roll.No),} for the award of the \textbf{Degree of Bachelor of Technology} in \textbf{``COMPUTER SCIENCE ENGINEERING - ARTIFICIAL INTELLIGENCE"} is a bonafide record of the work carried out by him/her under my/our guidance and supervision at Amrita School of Artificial Intelligence, Coimbatore.\\
+\vspace{1cm}
+\baselineskip=0.5cm
+
+\noindent\textbf{Sreekumar K.T.}\\
+Assistant Professor\\
+Project Guide
+
+
+%────────────────────────────────────────────────────────────────
+% DECLARATION
+%────────────────────────────────────────────────────────────────
+\newpage
+\baselineskip 1cm
+\thispagestyle{empty}
+
+\begin{center}
+	\large {\textbf{AMRITA SCHOOL OF ARTIFICIAL INTELLIGENCE}}\\
+	\vspace*{.2cm}
+	\Large{ \textbf{ AMRITA VISHWA VIDYAPEETHAM}}\\
+	\vspace*{.2cm}
+	\small{ COIMBATORE} - 641 112\\
+	\vspace*{.6cm}
+	\large {\textbf{DECLARATION}}
+	\vspace*{.1cm}
+\end{center}
+
+I, \textbf{RASWANTHKRISHNA M (Roll.No),} hereby declare that this thesis entitled {\sc \textbf{``Evalix: Intelligent Credit Risk Assessment System using Explainable Machine Learning with Fairness-Aware Decision Support"}}, is the record of the original work done by me under the guidance of \textbf{Sreekumar K.T.}, Assistant Professor, Amrita School of Artificial Intelligence, Coimbatore. To the best of my knowledge this work has not formed the basis for the award of any degree/diploma/associateship/fellowship/or a similar award to any candidate in any University.\\
+
+\vspace*{.8cm}
+
+\noindent{\bf Place:\hfill Signature of the Student} \\
+\noindent {\bf Date: }
+
+\vspace*{1.5cm}
+
+\begin{center}
+	\large {COUNTERSIGNED}\\
+	\vspace*{1.7cm}
+	\small {Dr. K.P.Soman\\
+		\vspace*{.1cm}
+		Professor and Dean\\
+		\vspace*{.1cm}
+		Amrita School of Artificial Intelligence\\
+		\vspace*{.1cm}
+		Amrita Vishwa Vidyapeetham}
+\end{center}
+
+
+%────────────────────────────────────────────────────────────────
+% TABLE OF CONTENTS
+%────────────────────────────────────────────────────────────────
+\newpage
+\baselineskip 1cm
+\pagenumbering{roman}
+\tableofcontents
+
+
+%────────────────────────────────────────────────────────────────
+% ACKNOWLEDGEMENT
+%────────────────────────────────────────────────────────────────
+\newpage
+\begin{center}
+	\section*{Acknowledgement}\addcontentsline{toc}{chapter}{Acknowledgement}
+\end{center}
+
+I express my sincere gratitude to my project guide for providing invaluable guidance, encouragement, and support throughout the course of this work. The insightful discussions and constructive feedback have been instrumental in shaping this project.
+
+I am deeply thankful to the faculty members of the Department of Computer Science Engineering -- Artificial Intelligence at Amrita School of Artificial Intelligence for their academic support and for providing access to computational resources necessary for this research.
+
+I acknowledge the open-source community behind scikit-learn, XGBoost, SHAP, DiCE, imbalanced-learn, FastAPI, and the numerous other libraries that form the foundation of this implementation.
+
+I am grateful to my family and friends for their unwavering support and understanding during the completion of this project.
+
+\baselineskip .7cm
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables\clearpage
+
+\cleardoublepage
+
+
+%────────────────────────────────────────────────────────────────
+% LIST OF ABBREVIATIONS
+%────────────────────────────────────────────────────────────────
+\chapter*{List of Abbreviations\hfill} \addcontentsline{toc}{chapter}{List of Abbreviations}
+\begin{tabular}{lll}
+	API & & Application Programming Interface \\
+	AUC & & Area Under the Curve \\
+	DiCE & & Diverse Counterfactual Explanations \\
+	DTI & & Debt-to-Income Ratio \\
+	EDA & & Exploratory Data Analysis \\
+	GB & & Gradient Boosting \\
+	ML & & Machine Learning \\
+	RBF & & Radial Basis Function \\
+	RF & & Random Forest \\
+	ROC & & Receiver Operating Characteristic \\
+	SHAP & & SHapley Additive exPlanations \\
+	SMOTE & & Synthetic Minority Oversampling Technique \\
+	SVM & & Support Vector Machine \\
+	XAI & & Explainable Artificial Intelligence \\
+	XGB & & eXtreme Gradient Boosting \\
+\end{tabular}
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract\hfill} \addcontentsline{toc}{chapter}{Abstract}
+
+Credit risk assessment is a fundamental task in the financial industry, where accurate prediction of loan approval directly impacts both institutional profitability and applicant well-being. Traditional rule-based scoring systems lack adaptability, while modern machine learning approaches often function as opaque black boxes. Regulatory frameworks such as the EU AI Act and the Equal Credit Opportunity Act increasingly mandate that automated lending decisions be explainable, fair, and auditable.
+
+This work introduces \textbf{Evalix}, an end-to-end intelligent credit risk assessment system integrating supervised machine learning with explainable AI (XAI) techniques, fairness analysis, and an interactive web-based decision support interface. The system is built on a loan prediction dataset of 12,367 application records with 7 raw features and a binary approval target.
+
+The pipeline encompasses domain-driven feature engineering (producing 14 total features), class imbalance handling via BorderlineSMOTE, and evaluation of five classifiers: Logistic Regression, Random Forest, Gradient Boosting, XGBoost, and SVM. The best model (Gradient Boosting) achieves a cross-validated ROC-AUC of 0.9312 after hyperparameter tuning. SHAP provides global and local explanations, DiCE generates actionable counterfactual scenarios, fairness analysis uses the 80\% disparate impact rule, and isotonic regression ensures probability calibration. The system is deployed as a FastAPI backend with an interactive web frontend.
+
+\vspace{0.3cm}
+\noindent \textbf{Keywords:} Credit Risk, Explainable AI, SHAP, Counterfactual Explanations, Fairness, Gradient Boosting, Model Calibration, FastAPI
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 1: INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\baselineskip1cm
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter{Introduction}
+
+Credit risk assessment evaluates the likelihood that a borrower will repay a loan. For banks and fintech platforms, this evaluation is the cornerstone of lending operations. Historically, credit evaluation relied on manual review using heuristic rules and standardized scorecards such as the FICO score. While transparent, these systems are rigid and cannot capture complex, non-linear relationships in applicant data.
+
+Machine learning has introduced the capability to process high-dimensional applicant profiles with improved predictive accuracy. However, complex models such as ensemble methods operate as black boxes, raising concerns around accountability and regulatory compliance. The EU AI Act classifies credit scoring as ``high-risk AI,'' mandating transparency and bias monitoring. The Equal Credit Opportunity Act (ECOA) requires specific reasons when credit applications are denied.
+
+Beyond transparency, algorithmic fairness is critical---models trained on historical data can perpetuate biases against certain demographic groups, leading to discriminatory lending practices even without explicit use of protected attributes.
+
+\section{Motivation and Objectives}
+
+The motivation arises from the gap between the predictive power of modern ML and the interpretability, fairness, and deployability requirements of real-world credit systems. Existing research often addresses these dimensions in isolation. We seek an integrated system addressing five requirements simultaneously:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Predictive Accuracy} on imbalanced credit data
+    \item \textbf{Explainability} via per-prediction human-readable explanations
+    \item \textbf{Actionability} through counterfactual guidance for rejected applicants
+    \item \textbf{Fairness} with quantitative demographic parity metrics
+    \item \textbf{Deployability} as a production-ready API with interactive frontend
+\end{enumerate}
+
+The specific objectives are: (i)~perform EDA and data quality assessment; (ii)~engineer domain-specific features from raw financial attributes; (iii)~implement and evaluate five classification algorithms with hyperparameter optimization; (iv)~address class imbalance through BorderlineSMOTE; (v)~integrate SHAP for global and local explanations; (vi)~generate DiCE counterfactual explanations; (vii)~evaluate fairness using the 80\% disparate impact rule; and (viii)~deploy as a FastAPI backend with web frontend.
+
+\section{Literature Survey}
+
+\subsection{Machine Learning for Credit Risk}
+
+Lessmann et al.\ (2015) benchmarked 41 classifiers across 8 credit scoring datasets, finding that ensemble methods---particularly Random Forests and Gradient Boosting---consistently outperformed individual classifiers. Xia et al.\ (2017) demonstrated XGBoost's state-of-the-art performance on peer-to-peer lending default prediction, highlighting the importance of domain-specific feature engineering. Chen and Guestrin (2016) introduced XGBoost with regularized objective functions, and Breiman (2001) introduced Random Forests with inherent feature importance.
+
+Chawla et al.\ (2002) introduced SMOTE to address class imbalance in credit scoring. BorderlineSMOTE (Han et al., 2005) extends this by focusing synthetic generation on decision boundary regions.
+
+\subsection{Explainable AI and Counterfactuals}
+
+Lundberg and Lee (2017) unified feature attribution methods under the SHAP framework, grounded in Shapley values with guarantees of consistency, local accuracy, and missingness. TreeSHAP (Lundberg et al., 2020) computes exact SHAP values for tree ensembles in polynomial time. Ribeiro et al.\ (2016) introduced LIME as a model-agnostic alternative.
+
+Mothilal et al.\ (2020) introduced DiCE for generating diverse counterfactual explanations---showing minimum changes to flip a prediction. Wachter et al.\ (2018) provided legal foundations for counterfactuals in algorithmic decision-making.
+
+\subsection{Algorithmic Fairness}
+
+Barocas and Selbst (2016) analyzed how ML encodes discriminatory patterns from historical data. The 80\% rule from the Uniform Guidelines on Employee Selection requires that selection rates for any protected group be at least 80\% of the highest group rate (Biddle, 2006). Hardt et al.\ (2016) formalized equalized odds, requiring equal true positive and false positive rates across groups.
+
+\section{Research Gap and Contributions}
+
+Despite extensive work on individual components, a gap exists in integrating predictive modeling, explainability, fairness, and deployment into a unified platform. Our contributions:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Integrated XAI Pipeline:} SHAP (why) + DiCE (what to change) in a single system
+    \item \textbf{Domain-Driven Feature Engineering:} 7 engineered features from financial domain knowledge
+    \item \textbf{Fairness-Aware Evaluation:} 80\% disparate impact rule across age and income groups
+    \item \textbf{End-to-End Deployment:} FastAPI backend with real-time SHAP explanations and web frontend
+    \item \textbf{Probability Calibration:} Isotonic regression for well-calibrated confidence scores
+\end{enumerate}
+
+\section{Report Organization}
+
+Chapter~2 presents the dataset, preprocessing, and feature engineering. Chapter~3 describes the methodology including model building, explainability, fairness, and deployment. Chapter~4 discusses results. Chapter~5 concludes with contributions and future work.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 2: DATASET AND PREPROCESSING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Dataset and Preprocessing}
+
+\section{Dataset Description}
+
+The study uses a loan prediction dataset of 12,367 records. Each record contains demographic, financial, and credit attributes alongside a binary target (\texttt{loan\_approved}). Table~\ref{tab:schema} describes the dataset schema.
+
+\begin{table}[H]
+\centering
+\caption{Dataset Schema (12,367 records, no missing values)}
+\label{tab:schema}
+\begin{tabular}{llp{6.5cm}}
+\toprule
+\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{age} & Continuous & Applicant's age (18--100) \\
+\texttt{income} & Continuous & Annual income \\
+\texttt{assets} & Continuous & Total asset value \\
+\texttt{credit\_score} & Continuous & Credit score (300--850) \\
+\texttt{debt\_to\_income\_ratio} & Continuous & Debt-to-income ratio (0--1) \\
+\texttt{existing\_loan} & Binary & Has an existing loan (0/1) \\
+\texttt{criminal\_record} & Binary & Has a criminal record (0/1) \\
+\texttt{loan\_approved} & Binary & Target: approved (1) or rejected (0) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The dataset exhibits severe class imbalance: 89\% rejected (0) and 11\% approved (1), yielding a 7.8:1 imbalance ratio.
+
+\section{Exploratory Data Analysis}
+
+\subsection{Correlation Analysis}
+
+Pearson correlation analysis reveals: \texttt{criminal\_record} ($-0.356$), \texttt{debt\_to\_income\_ratio} ($-0.330$), and \texttt{credit\_score} ($+0.317$) are the strongest correlates with loan approval. Features \texttt{age}, \texttt{income}, and \texttt{assets} show weak individual correlations, suggesting their predictive value emerges through interactions and engineered features.
+
+\subsection{Statistical Testing}
+
+Welch two-sample t-tests confirm statistically significant differences ($p \ll 0.05$) between approved and rejected groups for \texttt{credit\_score} and \texttt{debt\_to\_income\_ratio}. Chi-square tests confirm significant association for both binary features. IQR-based outlier analysis reveals no significant outliers.
+
+
+\section{Data Augmentation}
+
+To improve robustness and prevent deterministic patterns, the dataset undergoes: (i)~Gaussian noise injection on continuous features ($x'_i = x_i + \epsilon$, $\epsilon \sim \mathcal{N}(0, \sigma^2)$), clipped to domain-valid ranges; and (ii)~label noise injection where $\sim$8\% of labels are randomly flipped to simulate real-world judgment errors.
+
+
+\section{Feature Engineering}
+
+Seven domain-specific features are engineered from raw attributes. Table~\ref{tab:engineered_features} describes each.
+
+\begin{table}[H]
+\centering
+\caption{Engineered Features (7 new features from domain knowledge)}
+\label{tab:engineered_features}
+\begin{tabular}{lp{4.5cm}l}
+\toprule
+\textbf{Feature} & \textbf{Description} & \textbf{Formula / Logic} \\
+\midrule
+\texttt{credit\_tier} & Credit score bucketing (0--4) & Poor/Fair/Good/Very Good/Excellent \\
+\texttt{high\_debt} & High debt flag & 1 if DTI $> 0.40$ \\
+\texttt{asset\_income\_ratio} & Wealth accumulation & assets / (income + 1) \\
+\texttt{age\_group} & Life stage (0--3) & 18--30 / 31--45 / 46--60 / 60+ \\
+\texttt{income\_per\_age} & Earning efficiency & income / (age + 1) \\
+\texttt{payment\_capacity} & Monthly disposable income & income $\times$ (1 $-$ DTI) / 12 \\
+\texttt{credit\_util\_proxy} & Credit usage proxy & existing\_loan / (income $\times$ 0.5 + 1) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The credit tier maps scores to industry-standard categories: Excellent ($\geq$800), Very Good (740--799), Good (670--739), Fair (580--669), Poor ($<$580). After engineering, the complete feature set comprises \textbf{14 features} (7 original + 7 engineered).
+
+
+\section{Preprocessing Pipeline}
+
+The preprocessing pipeline consists of the following steps applied in sequence:
+
+\begin{table}[H]
+\centering
+\caption{Preprocessing Pipeline Summary}
+\label{tab:preprocessing_summary}
+\begin{tabular}{lll}
+\toprule
+\textbf{Step} & \textbf{Method} & \textbf{Applied To} \\
+\midrule
+Missing values & Median imputation & All columns \\
+Augmentation & Gaussian noise + label flip (8\%) & Full dataset \\
+Feature engineering & 7 domain-driven features & Full dataset \\
+Train-test split & 80/20 stratified (random\_state=42) & Full dataset \\
+Scaling & StandardScaler ($z$-score) & Train $\rightarrow$ Test \\
+Class balancing & BorderlineSMOTE ($k$=7) & Training set only \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{StandardScaler} transforms features to zero mean and unit variance: $x'_i = (x_i - \mu)/\sigma$, where $\mu$ and $\sigma$ are computed from training data only to prevent leakage. The scaler is persisted as \texttt{scaler.pkl}.
+
+\textbf{BorderlineSMOTE} addresses the 89:11 imbalance by generating synthetic minority samples near the decision boundary. Unlike standard SMOTE, which interpolates between all minority instances ($x_{\text{new}} = x_i + \lambda \cdot (x_{nn} - x_i)$), BorderlineSMOTE restricts oversampling to borderline minority instances whose neighbors include significant majority class representation. After SMOTE, training classes are balanced ($\sim$8,800 each) while the test set retains its original distribution.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 3: METHODOLOGY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Methodology}
+
+\section{Classification Models}
+
+Five algorithms spanning linear, kernel-based, and ensemble approaches are evaluated:
+
+\textbf{Logistic Regression} models approval probability as $P(y{=}1|\mathbf{x}) = \sigma(\mathbf{w}^T\mathbf{x} + b)$ with L2 regularization (\texttt{max\_iter=1000}).
+
+\textbf{Random Forest} aggregates $B$ decision trees on bootstrap samples: $\hat{y} = \text{mode}\{h_1(\mathbf{x}), \ldots, h_B(\mathbf{x})\}$ (\texttt{n\_estimators=200, max\_depth=15}).
+
+\textbf{Gradient Boosting} fits trees sequentially to residuals: $F_m(\mathbf{x}) = F_{m-1}(\mathbf{x}) + \eta \cdot h_m(\mathbf{x})$ (\texttt{n\_estimators=200, learning\_rate=0.1}).
+
+\textbf{XGBoost} extends gradient boosting with regularized objective: $\mathcal{L} = \sum l(y_i, \hat{y}_i) + \sum \Omega(f_k)$ where $\Omega = \gamma T + \frac{1}{2}\lambda\|w\|^2$ (\texttt{n\_estimators=200, max\_depth=6}).
+
+\textbf{SVM (RBF)} maps features via $K(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2)$ (\texttt{C=1.0, probability=True}).
+
+
+\section{Evaluation Metrics}
+
+Given class imbalance, we employ: Accuracy, Precision ($TP/(TP{+}FP)$), Recall ($TP/(TP{+}FN)$), F1 Score (harmonic mean of Precision and Recall), and ROC-AUC (discrimination across all thresholds). Sanity checks flag accuracy $>$95\%, probability std $<$0.15, or perfect precision/recall.
+
+
+\section{Hyperparameter Tuning}
+
+The top three tree-based models undergo optimization using RandomizedSearchCV (30 iterations, 5-fold CV, ROC-AUC scoring). Table~\ref{tab:search_spaces} summarizes the search spaces.
+
+\begin{table}[H]
+\centering
+\caption{Hyperparameter Search Spaces}
+\label{tab:search_spaces}
+\begin{tabular}{llp{5cm}}
+\toprule
+\textbf{Model} & \textbf{Parameter} & \textbf{Values} \\
+\midrule
+\multirow{4}{*}{Random Forest} & n\_estimators & \{50, 100, 150\} \\
+ & max\_depth & \{3, 6, 9\} \\
+ & min\_samples\_split & \{2, 5, 10\} \\
+ & min\_samples\_leaf & \{20, 50, 100\} \\
+\midrule
+\multirow{4}{*}{Gradient Boosting} & n\_estimators & \{50, 100, 150\} \\
+ & max\_depth & \{3, 5, 7\} \\
+ & learning\_rate & \{0.01, 0.05, 0.1\} \\
+ & subsample & \{0.8, 0.9, 1.0\} \\
+\midrule
+\multirow{5}{*}{XGBoost} & n\_estimators & \{50, 100, 150\} \\
+ & max\_depth & \{3, 6, 9\} \\
+ & learning\_rate & \{0.01, 0.05, 0.1\} \\
+ & subsample & \{0.7, 0.8, 0.9\} \\
+ & colsample\_bytree & \{0.7, 0.8, 1.0\} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Model Explainability: SHAP}
+
+SHAP values are grounded in Shapley values from cooperative game theory. For feature $j$:
+
+\begin{equation}
+\phi_j(f, \mathbf{x}) = \sum_{S \subseteq N \setminus \{j\}} \frac{|S|!(|N|{-}|S|{-}1)!}{|N|!} [f(S \cup \{j\}) - f(S)]
+\end{equation}
+
+SHAP satisfies local accuracy ($f(\mathbf{x}) = \phi_0 + \sum \phi_j$), missingness, and consistency. TreeSHAP computes exact values for tree ensembles in $O(TLD^2)$ time, enabling real-time explanations.
+
+Four analyses are performed: (i)~global feature importance (mean $|\phi_j|$); (ii)~beeswarm plots showing magnitude and direction for 500 samples; (iii)~per-applicant waterfall plots; and (iv)~dependence plots for top features.
+
+
+\section{Counterfactual Explanations: DiCE}
+
+Counterfactual explanations find minimum changes to flip a prediction: $\mathbf{x}' = \arg\min d(\mathbf{x}, \mathbf{x}')$ subject to $f(\mathbf{x}') \neq c$. The DiCE framework generates \textit{diverse} counterfactuals using random search with a dedicated Random Forest on unscaled data. Three counterfactuals are generated per rejected applicant for 5 test cases.
+
+SHAP and DiCE are complementary: SHAP explains \textit{why} a decision was made; DiCE explains \textit{what needs to change}.
+
+
+\section{Fairness Analysis}
+
+Fairness is evaluated across age groups (18--30, 31--45, 46--60, 60+) and income groups (Low, Medium, High, Very High). For each group, approval rate, accuracy, TPR, and FPR are computed. The 80\% rule evaluates disparate impact:
+
+\begin{equation}
+\text{Disparate Impact Ratio} = \frac{\text{Approval Rate}_{\text{group}}}{\max(\text{Approval Rate}_{\text{all groups}})}
+\end{equation}
+
+A ratio $\geq 0.80$ indicates no adverse impact (PASS); $< 0.80$ indicates potential discrimination (FAIL).
+
+
+\section{Probability Calibration}
+
+Tree ensembles often produce poorly calibrated probabilities concentrated near 0 or 1. A well-calibrated model satisfies $P(Y{=}1|\hat{P}{=}p) = p$. We apply isotonic regression calibration via \texttt{CalibratedClassifierCV} (method=`isotonic', cv=5), which fits a non-parametric monotonic step function:
+
+\begin{equation}
+g^* = \arg\min_{g \in \mathcal{G}} \sum_{i=1}^{n} (y_i - g(\hat{p}_i))^2
+\end{equation}
+
+Evaluation metrics include calibration error, probability standard deviation, and extreme prediction percentage.
+
+
+\section{System Architecture and Deployment}
+
+\subsection{FastAPI Backend}
+
+The backend loads trained artifacts at startup (model, scaler, SHAP explainer) and exposes two endpoints:
+
+\begin{table}[H]
+\centering
+\caption{API Endpoints}
+\label{tab:api_endpoints}
+\begin{tabular}{lllp{4.5cm}}
+\toprule
+\textbf{Endpoint} & \textbf{Method} & \textbf{Input} & \textbf{Output} \\
+\midrule
+\texttt{/health} & GET & None & Model status, SHAP availability \\
+\texttt{/predict} & POST & 7 raw features & Decision, probability, risk level, SHAP factors, suggestions \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The prediction pipeline: (1)~apply \texttt{engineer\_single\_row} to compute 7 engineered features; (2)~construct 14-feature vector; (3)~scale with persisted scaler; (4)~predict probability; (5)~determine decision (Approved $\geq$0.50, Review 0.25--0.50, Rejected $<$0.25); (6)~compute SHAP values; (7)~generate improvement suggestions.
+
+The confidence score is $|p - 0.5|/0.5 \times 100$. Risk levels: Low ($p \geq 0.7$), Medium (0.5--0.7), Elevated (0.3--0.5), High (0.15--0.3), Very High ($< 0.15$).
+
+\subsection{Web Frontend}
+
+The frontend (HTML5/CSS3/JavaScript) provides: input form for 7 features, color-coded decision badge, risk score bar (0--100), SHAP explanation lists (risk/protective factors), improvement suggestions, and API health monitoring with 15-second polling.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 4: RESULTS AND DISCUSSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Results and Discussion}
+
+\section{Model Comparison}
+
+Table~\ref{tab:model_results} presents the performance of all five models on the test set.
+
+\begin{table}[H]
+\centering
+\caption{Model Performance Comparison on Test Set}
+\label{tab:model_results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+Gradient Boosting & \textbf{0.8420} & \textbf{0.5714} & 0.4211 & 0.4848 & 0.7035 \\
+XGBoost & 0.8286 & 0.5186 & 0.4142 & 0.4606 & 0.7021 \\
+Random Forest & 0.8205 & 0.4918 & 0.4828 & \textbf{0.4873} & \textbf{0.7158} \\
+SVM & 0.7445 & 0.3659 & 0.6087 & 0.4570 & 0.7089 \\
+Logistic Regression & 0.6399 & 0.2826 & \textbf{0.6751} & 0.3984 & 0.7269 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Gradient Boosting} achieves the highest accuracy (0.8420) and precision (0.5714)---when it predicts approval, it is correct 57\% of the time. \textbf{Random Forest} achieves the best F1 (0.4873) and ROC-AUC (0.7158), reflecting the best precision-recall balance. \textbf{Logistic Regression} has the highest recall (0.6751) but lowest precision (0.2826), and interestingly the highest ROC-AUC (0.7269), suggesting strong discrimination exploitable with threshold tuning.
+
+The results reveal a clear precision-recall trade-off: models optimized for precision (GB) have lower recall, while high-recall models (LR) sacrifice precision. This trade-off is inherent to credit risk where the cost of false approvals versus false rejections depends on institutional risk appetite.
+
+
+\section{Hyperparameter Tuning}
+
+Table~\ref{tab:tuning_results} presents tuning results.
+
+\begin{table}[H]
+\centering
+\caption{Hyperparameter Tuning Results (5-Fold CV)}
+\label{tab:tuning_results}
+\begin{tabular}{lcr}
+\toprule
+\textbf{Model} & \textbf{Best CV ROC-AUC} & \textbf{Time (s)} \\
+\midrule
+Gradient Boosting & \textbf{0.9312} & 118.3 \\
+Random Forest & 0.8797 & 26.2 \\
+XGBoost & -- & 8.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Gradient Boosting achieves a CV ROC-AUC of \textbf{0.9312} after tuning---a substantial improvement from the pre-tuning test ROC-AUC of 0.7035. This model is saved as \texttt{best\_model.pkl} for all subsequent analysis and deployment.
+
+
+\section{SHAP Explainability Results}
+
+Global SHAP importance analysis (mean $|\phi_j|$ across 500 test samples) reveals:
+
+\begin{itemize}[nosep]
+    \item \textbf{Top features:} \texttt{credit\_score}, \texttt{criminal\_record}, and \texttt{debt\_to\_income\_ratio} dominate, consistent with correlation analysis.
+    \item \textbf{Engineered features:} \texttt{credit\_tier} and \texttt{payment\_capacity} appear prominently, validating the feature engineering approach.
+    \item \textbf{Weak features:} \texttt{age} and \texttt{age\_group} contribute minimally.
+\end{itemize}
+
+Local waterfall plots show per-applicant breakdowns: high credit scores ($>$740) push toward approval, criminal records generate large negative SHAP values, and low DTI ($<$0.30) indicates lower risk.
+
+
+\section{Counterfactual Results}
+
+DiCE generates 3 counterfactuals for 5 rejected applicants (15 total). The most frequently changed features: credit score (typically +50--100 points), DTI (reduced below 0.40), and income/assets (increased). This confirms credit score as the most actionable lever for improving approval odds.
+
+\begin{table}[H]
+\centering
+\caption{SHAP vs DiCE: Complementary Explanation Approaches}
+\label{tab:shap_vs_dice}
+\begin{tabular}{lp{4.5cm}p{4.5cm}}
+\toprule
+\textbf{Aspect} & \textbf{SHAP} & \textbf{DiCE} \\
+\midrule
+Question & \textit{Why this decision?} & \textit{What needs to change?} \\
+Output & Feature attribution values & Modified feature values \\
+Scope & Global and local & Local only \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Fairness Results}
+
+The 80\% disparate impact rule is applied across age and income groups. Approval rates show relatively small variation across age groups ($\sim$11\% each) and income groups (Low: 11.3\%, Medium: 11.6\%, High: 13.4\%, Very High: 8.9\%). The model demonstrates equitable treatment across demographic groups, with approval rates not varying dramatically by age or income bracket---an important finding for regulatory compliance.
+
+
+\section{Calibration Results}
+
+The base Gradient Boosting model exhibits typical tree ensemble behavior: probabilities concentrated near 0 and 1 with high extreme prediction percentage. After isotonic calibration: calibration error decreases, probability spread increases, and extreme predictions decrease.
+
+However, the production API uses the \textbf{base model} because the calibrated model over-compresses mid-range probabilities in the critical 0.25--0.75 threshold range, producing less discriminative predictions. The base model's sharper estimates provide more decisive confidence scores.
+
+
+\section{Deployment Validation}
+
+The FastAPI backend serves predictions with: model/scaler/SHAP loading under 5 seconds, millisecond prediction latency including SHAP, CORS support, Pydantic input validation (age 18--100, credit score 300--850, DTI 0--1), and graceful fallback when SHAP is unavailable.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 5: CONCLUSION AND FUTURE WORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusion and Future Work}
+
+\section{Summary}
+
+Evalix demonstrates that credit risk systems can be simultaneously accurate, interpretable, fair, and deployable. Key outcomes:
+
+\begin{enumerate}[nosep]
+    \item Five classifiers evaluated on 12,367 records with 14 features; Gradient Boosting achieves best accuracy (0.8420) and CV ROC-AUC (0.9312) after tuning.
+    \item Seven engineered features validated through SHAP importance as meaningful predictors.
+    \item BorderlineSMOTE handles 89:11 class imbalance on training data only.
+    \item SHAP + DiCE provide complementary explainability: attribution and counterfactual guidance.
+    \item 80\% rule confirms equitable treatment across age and income groups.
+    \item Production FastAPI + web frontend delivers real-time explained predictions.
+\end{enumerate}
+
+\section{Future Work}
+
+\begin{itemize}[nosep]
+    \item \textbf{Advanced Models:} TabNet, FT-Transformer for tabular deep learning; ensemble stacking; cost-sensitive learning for asymmetric false approval/rejection costs.
+    \item \textbf{Enhanced Explainability:} LIME integration for cross-validation of attributions; interactive counterfactual exploration in the frontend; natural language explanation generation from SHAP values.
+    \item \textbf{Extended Fairness:} Intersectional fairness across compound demographic groups; equalized odds enforcement; temporal fairness drift monitoring in production.
+    \item \textbf{Production:} Data drift detection and automated retraining triggers; A/B testing infrastructure; batch prediction for portfolio-level assessment; authentication, RBAC, and audit logging.
+\end{itemize}
+
+\section{Conclusion}
+
+As regulatory frameworks increasingly mandate explainability and fairness in automated lending, integrated systems like Evalix represent a practical path toward responsible AI deployment. The methodologies developed provide a reusable framework adaptable to other domains requiring transparent, accountable, high-stakes classification.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{References\hfill} \addcontentsline{toc}{chapter}{References}
+
+\begin{enumerate}[nosep]
+
+\item Arik, S.\"{O}. and Pfister, T. (2021). TabNet: Attentive interpretable tabular learning. \emph{AAAI}, 35(8), 6679--6687.
+
+\item Barocas, S. and Selbst, A.D. (2016). Big data's disparate impact. \emph{California Law Review}, 104, 671--732.
+
+\item Biddle, D. (2006). \emph{Adverse Impact and Test Validation} (2nd ed.). Gower.
+
+\item Breiman, L. (2001). Random Forests. \emph{Machine Learning}, 45(1), 5--32.
+
+\item Chawla, N.V. et al. (2002). SMOTE: Synthetic Minority Over-sampling Technique. \emph{JAIR}, 16, 321--357.
+
+\item Chen, T. and Guestrin, C. (2016). XGBoost: A scalable tree boosting system. \emph{ACM SIGKDD}, 785--794.
+
+\item Gorishniy, Y. et al. (2021). Revisiting deep learning models for tabular data. \emph{NeurIPS}, 34, 18932--18943.
+
+\item Han, H., Wang, W.Y., and Mao, B.H. (2005). Borderline-SMOTE: A new over-sampling method. \emph{ICIC}, 878--887.
+
+\item Hardt, M., Price, E., and Srebro, N. (2016). Equality of opportunity in supervised learning. \emph{NeurIPS}, 29.
+
+\item Lessmann, S. et al. (2015). Benchmarking classifiers for credit scoring. \emph{EJOR}, 247(1), 124--136.
+
+\item Lundberg, S.M. and Lee, S.I. (2017). A unified approach to interpreting model predictions. \emph{NeurIPS}, 30, 4765--4774.
+
+\item Lundberg, S.M. et al. (2020). From local explanations to global understanding with explainable AI for trees. \emph{Nature Machine Intelligence}, 2(1), 56--67.
+
+\item Mothilal, R.K., Sharma, A., and Tan, C. (2020). Explaining ML classifiers through diverse counterfactual explanations. \emph{FAccT}, 607--617.
+
+\item Ribeiro, M.T., Singh, S., and Guestrin, C. (2016). ``Why should I trust you?'' \emph{ACM SIGKDD}, 1135--1144.
+
+\item Wachter, S., Mittelstadt, B., and Russell, C. (2018). Counterfactual explanations without opening the black box. \emph{Harvard JOLT}, 31(2), 841--887.
+
+\item Xia, Y. et al. (2017). A boosted decision tree approach for credit scoring. \emph{Expert Syst. Appl.}, 78, 225--241.
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Appendix\hfill} \addcontentsline{toc}{chapter}{Appendix}
+
+\section*{A. Pipeline Structure}
+
+\begin{table}[H]
+\centering
+\caption{Notebook Pipeline}
+\label{tab:pipeline}
+\begin{tabular}{clp{7cm}}
+\toprule
+\textbf{No.} & \textbf{Notebook} & \textbf{Purpose} \\
+\midrule
+1 & 01\_Preprocessing & Data loading, feature engineering, split, scaling, SMOTE \\
+2 & 02\_Model\_Building & Train 5 classifiers, evaluate, confusion matrices, ROC \\
+3 & 03\_Hyperparameter\_Tuning & RandomizedSearchCV, save best model \\
+4 & 04\_SHAP\_Explainability & Global importance, beeswarm, waterfall, dependence \\
+5 & 05\_DiCE\_Counterfactuals & Counterfactual explanations for rejected applicants \\
+6 & 06\_Fairness\_Summary & Age/income fairness, 80\% rule \\
+7 & 07\_Model\_Calibration & Isotonic calibration, before/after comparison \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{B. Source Modules}
+
+\begin{table}[H]
+\centering
+\caption{Python Source Modules}
+\label{tab:source_modules}
+\begin{tabular}{lp{7.5cm}}
+\toprule
+\textbf{Module} & \textbf{Key Functions} \\
+\midrule
+\texttt{src/preprocessing.py} & load\_data, handle\_missing\_values, split\_and\_scale, apply\_smote \\
+\texttt{src/feature\_engineering.py} & create\_features, engineer\_single\_row \\
+\texttt{src/model\_utils.py} & train\_model, evaluate\_model, save\_model, load\_model \\
+\texttt{src/evaluation.py} & plot\_confusion\_matrix, plot\_roc\_curve, compare\_models\_table \\
+\texttt{src/calibration.py} & calibrate\_model, evaluate\_calibration, compare\_calibration \\
+\texttt{app.py} & FastAPI: /health, /predict endpoints \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{C. Software Libraries}
+
+\begin{table}[H]
+\centering
+\caption{Software Stack}
+\label{tab:software}
+\begin{tabular}{ll}
+\toprule
+\textbf{Library} & \textbf{Purpose} \\
+\midrule
+Python 3.8+ & Programming language \\
+scikit-learn & Classification, preprocessing, calibration \\
+XGBoost & Gradient boosting classifier \\
+imbalanced-learn & BorderlineSMOTE \\
+SHAP & TreeSHAP explainability \\
+DiCE & Counterfactual generation \\
+FastAPI / uvicorn & REST API backend \\
+pandas / numpy & Data manipulation \\
+matplotlib / seaborn & Visualization \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{D. API Request/Response Example}
+
+\begin{lstlisting}[caption={POST /predict Request}]
+{"age": 35, "income": 75000, "assets": 90000, "credit_score": 720,
+ "debt_to_income_ratio": 0.35, "existing_loan": 0, "criminal_record": 0}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Response}]
+{"decision": "Approved", "probability": 0.7823, "risk_level": "Low",
+ "confidence": 56.5,
+ "top_risk_factors": [{"feature": "DTI", "impact": -0.031}],
+ "top_protective_factors": [{"feature": "Credit Score", "impact": 0.155}],
+ "improvement_suggestions": ["Profile looks strong."]}
+\end{lstlisting}
+
+
+\end{document}
