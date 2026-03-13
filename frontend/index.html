@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evalix - Intelligent Credit Risk Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt brand-icon"></i>
+                <span class="brand-text">Eval<span class="brand-highlight">ix</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#assessment" class="nav-link">Assessment</a>
+                <div class="nav-status">
+                    <span class="status-dot" id="apiStatus"></span>
+                    <span class="status-text" id="apiStatusText">Checking...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-brain"></i>
+                <span>Powered by Explainable AI</span>
+            </div>
+            <h1 class="hero-title">
+                Intelligent Credit Risk<br>
+                <span class="gradient-text">Assessment System</span>
+            </h1>
+            <p class="hero-subtitle">
+                Make informed lending decisions with our state-of-the-art machine learning model.
+                Get transparent explanations for every decision.
+            </p>
+            <div class="hero-cta">
+                <a href="#assessment" class="btn btn-primary btn-large">
+                    <i class="fas fa-chart-line"></i>
+                    Start Assessment
+                </a>
+                <a href="#how-it-works" class="btn btn-secondary btn-large">
+                    <i class="fas fa-play-circle"></i>
+                    Learn More
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">95%+</div>
+                    <div class="stat-label">Accuracy Rate</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-value">&lt;2s</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Explainable</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Why Choose Evalix?</h2>
+                <p class="section-subtitle">Advanced machine learning meets explainable AI for transparent credit
+                    decisions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Ensemble ML Model</h3>
+                    <p>Combines XGBoost, Random Forest, and Gradient Boosting for robust predictions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SHAP Explanations</h3>
+                    <p>Understand exactly which factors influence each credit decision with SHAP values</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Actionable Insights</h3>
+                    <p>Get personalized recommendations on how to improve creditworthiness</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Analysis</h3>
+                    <p>Instant credit risk assessment with sub-second response times</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Process</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple, transparent, and efficient credit assessment in three steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Submit Application</h3>
+                        <p>Enter the applicant's financial and personal information in our secure form</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our ML model engineers 7 additional features and assesses risk in real time</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Get Results</h3>
+                        <p>Receive decision with full SHAP explanation of contributing factors</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section id="assessment" class="assessment-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Assessment Tool</span>
+                <h2 class="section-title">Credit Risk Assessment</h2>
+                <p class="section-subtitle">Fill in the application details to get an instant AI-powered credit decision
+                </p>
+            </div>
+
+            <div class="assessment-container">
+                <!-- Form Panel -->
+                <div class="form-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-user-edit"></i>
+                        <h3>Application Form</h3>
+                    </div>
+
+                    <form id="loanForm" class="loan-form">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <div class="section-title-bar">
+                                <i class="fas fa-user"></i>
+                                <span>Personal Information</span>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="age">
+                                        <i class="fas fa-birthday-cake"></i>
+                                        Age (years)
+                                    </label>
+                                    <input type="number" id="age" name="age" min="18" max="100" value="35" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="criminal_record">
+                                        <i class="fas fa-gavel"></i>
+                                        Criminal Record
+                                    </label>
+                                    <select id="criminal_record" name="criminal_record" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Financial Information -->
+                        <div class="form-section">
+                            <div class="section-title-bar">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Financial Information</span>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="income">
+                                        <i class="fas fa-wallet"></i>
+                                        Annual Income ($)
+                                    </label>
+                                    <input type="number" id="income" name="income" min="0" step="1000" value="55000"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="assets">
+                                        <i class="fas fa-landmark"></i>
+                                        Total Assets ($)
+                                    </label>
+                                    <input type="number" id="assets" name="assets" min="0" step="1000" value="30000"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="credit_score">
+                                        <i class="fas fa-chart-bar"></i>
+                                        Credit Score (300–850)
+                                    </label>
+                                    <input type="number" id="credit_score" name="credit_score" min="300" max="850"
+                                        value="700" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="debt_to_income_ratio">
+                                        <i class="fas fa-percentage"></i>
+                                        Debt-to-Income Ratio
+                                    </label>
+                                    <input type="number" id="debt_to_income_ratio" name="debt_to_income_ratio" min="0"
+                                        max="1" step="0.01" value="0.30" required>
+                                    <span class="field-hint">Enter as decimal (e.g. 0.35 = 35%)</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="existing_loan">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        Existing Loan
+                                    </label>
+                                    <select id="existing_loan" name="existing_loan" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                                <span class="btn-content">
+                                    <i class="fas fa-search-dollar"></i>
+                                    <span class="btn-text">Analyze Risk</span>
+                                </span>
+                                <span class="btn-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <span>Analyzing...</span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-outline" onclick="resetForm()">
+                                <i class="fas fa-redo"></i>
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Assessment Results</h3>
+                    </div>
+
+                    <!-- Placeholder -->
+                    <div id="resultsPlaceholder" class="results-placeholder">
+                        <div class="placeholder-illustration">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h4>Ready for Assessment</h4>
+                        <p>Submit a loan application to receive an AI-powered credit risk analysis</p>
+                        <div class="placeholder-features">
+                            <div class="placeholder-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Instant Decision</span>
+                            </div>
+                            <div class="placeholder-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Risk Breakdown</span>
+                            </div>
+                            <div class="placeholder-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Factor Analysis</span>
+                            </div>
+                            <div class="placeholder-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Improvement Tips</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div id="resultsContainer" class="results-content hidden">
+
+                        <!-- Decision Card -->
+                        <div id="decisionCard" class="decision-card">
+                            <div class="decision-badge" id="decisionBadge">
+                                <i id="decisionIcon" class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="decision-info">
+                                <span class="decision-label">Decision</span>
+                                <h2 id="decisionText" class="decision-text">APPROVED</h2>
+                            </div>
+                            <div class="decision-metrics">
+                                <div class="metric">
+                                    <div class="metric-value" id="riskScore">73.39%</div>
+                                    <div class="metric-label">Approval Odds</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-badge" id="riskLevel">LOW</div>
+                                    <div class="metric-label">Risk Level</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value" id="confidence">73%</div>
+                                    <div class="metric-label">Confidence</div>
+                                </div>
+                            </div>
+                            <div class="risk-gauge">
+                                <div class="gauge-labels">
+                                    <span>Low Odds</span>
+                                    <span>Medium</span>
+                                    <span>High Odds</span>
+                                </div>
+                                <div class="gauge-track">
+                                    <div id="riskBar" class="gauge-fill" style="width: 26%"></div>
+                                    <div id="riskMarker" class="gauge-marker" style="left: 26%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explanation Card -->
+                        <div class="explanation-card">
+                            <div class="card-header">
+                                <i class="fas fa-brain"></i>
+                                <h4>AI Explanation</h4>
+                            </div>
+                            <p class="card-description">
+                                The following factors had the most significant impact on your assessment:
+                            </p>
+
+                            <div class="factors-container">
+                                <div class="factors-column risk-factors">
+                                    <div class="factors-header">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>Risk Factors</span>
+                                    </div>
+                                    <ul id="riskFactorsList" class="factors-list">
+                                    </ul>
+                                </div>
+
+                                <div class="factors-column protective-factors">
+                                    <div class="factors-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Protective Factors</span>
+                                    </div>
+                                    <ul id="protectiveFactorsList" class="factors-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Suggestions Card -->
+                        <div id="suggestionsCard" class="suggestions-card hidden">
+                            <div class="card-header">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>How to Improve</h4>
+                            </div>
+                            <p class="card-description">
+                                Based on our analysis, here are personalized recommendations:
+                            </p>
+                            <ul id="suggestionsList" class="suggestions-list">
+                            </ul>
+                            <div class="suggestions-disclaimer">
+                                <i class="fas fa-info-circle"></i>
+                                <span>These suggestions are based on statistical patterns and should be considered as
+                                    general guidance.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="error-card hidden">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="errorText">An error occurred</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Eval<span class="brand-highlight">ix</span></span>
+                    </div>
+                    <p>Explainable AI for transparent credit decisions</p>
+                </div>
+                <div class="footer-tech">
+                    <h4>Powered By</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge"><i class="fas fa-tree"></i> XGBoost</span>
+                        <span class="tech-badge"><i class="fas fa-random"></i> Random Forest</span>
+                        <span class="tech-badge"><i class="fas fa-chart-area"></i> SHAP</span>
+                        <span class="tech-badge"><i class="fas fa-lightbulb"></i> DiCE</span>
+                        <span class="tech-badge"><i class="fas fa-bolt"></i> FastAPI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Evalix. Built for academic demonstration.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -2,37 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
+*.egg-info/
+*.egg
 .Python
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# Virtual environments
-venv/
-ENV/
-env/
-.venv
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints
-.jupyter/
+# Jupyter
+.ipynb_checkpoints/
 
 # IDEs
 .vscode/
@@ -40,39 +17,31 @@ env/
 *.swp
 *.swo
 *~
-.DS_Store
-
-# Machine Learning specific
-*.pkl
-*.pickle
-*.joblib
-*.h5
-*.hdf5
-*.pt
-*.pth
-models/*.pkl
-models/*.joblib
-models/*.h5
-
-# Data files (keep CSVs tracked but exclude large ones if needed)
-*.xlsx
-*.xls
-data/*.parquet
-
-# Environment variables
-.env
-.env.local
-
-# Logs
-*.log
-
-# Cache
-.cache/
-*.cache
 
 # OS
 .DS_Store
-Thumbs.db
+.AppleDouble
+.LSOverride
 
-# Reports
-output_*.pdf
+# Environment
+.env
+.venv
+venv/
+ENV/
+env/
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+
+# Models (if too large)
+models/*.h5
+models/*.joblib
+models/*.pt
+models/*.pth
+
+# Misc
+*.log
+*.tmp
+*.temp
